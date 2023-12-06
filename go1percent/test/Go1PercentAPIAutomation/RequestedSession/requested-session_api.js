@@ -1,4 +1,4 @@
-const headers = require('../../../globals')
+const globals = require('../../../globals')
 const accessToken =''
 
 const addTag ={
@@ -16,14 +16,33 @@ const title = {
 describe('api testing', function () {
   let sessionID = '';
 
+    const baseUrl = "https://nashtechglobal.qa.go1percent.com/my-dashboard";
+    const header = globals.admin.headers;
+    const tokenHeaders = globals.admin.tokenHeaders;
+    const tokenBody = globals.admin.tokenBody;
+
+    it('get api token', async function ({ supertest }) {
+        await supertest
+            .request("https://auth.go1percent.com/auth/realms/nashtech/protocol/openid-connect")
+            .post("/token")
+            .send(tokenBody)
+            .set(tokenHeaders)
+            .expect(200)
+            .expect('Content-Type', /json/)
+            .then(function (response) {
+                const token = response._body.access_token;
+                header['Authorization'] = 'Bearer ' + token;
+            });
+    });
+
     it('admin should able to see the available requested sessions', async function ({ supertest }) {
       const startTime = performance.now();
   
       const response = await supertest
-        .request(headers.base_url)
-        .get(`/v02/sessions/manage?pageNumber=${headers.queryRequested.pageNumber}&pageSize=${headers.queryRequested.pageSize}&filter=${headers.queryRequested.filter}&search=${headers.queryRequested.search}`)
-        .set('source', headers.source)
-        .set('Authorization', accessToken)
+        .request(baseUrl)
+        .get(`/v02/sessions/manage?pageNumber=${globals.queryRequested.pageNumber}&pageSize=${globals.queryRequested.pageSize}&filter=${globals.queryRequested.filter}&search=${globals.queryRequested.search}`)
+        .set(globals)
+        // .set('Authorization', accessToken)
   
         .expect(200)
         .expect('Content-Type', 'application/json')
