@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
 
     steps:
     
@@ -22,8 +22,8 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        # cache: 'npm'
-        # cache-dependency-path: './go1percent/package-lock.json'
+        cache: 'npm'
+        cache-dependency-path: './go1percent/package-lock.json'
 
     - name: Install dependencies
       run: npm install
