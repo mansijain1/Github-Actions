@@ -27,20 +27,20 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-      working-directory: Github-Actions
+      working-directory: go1percent
 
     - name: Install Nightwatch
       run: npm install --save-dev nightwatch
-      working-directory: Github-Actions
+      working-directory: go1percent
       
     - name: Build project
       run: npm run build --if-present
-      working-directory: Github-Actions  
+      working-directory: go1percent  
 
     - name: Run Go1PercentAPIAutomation Tests
       run: npx nightwatch ./test/Go1PercentAPIAutomation/RequestedSession/requested-session_api.js --env api_testing
-      working-directory: Github-Actions  
+      working-directory: go1percent  
 
     - name: Run Go1PercentFEAutomation Tests
       run: npx nightwatch ./test/Go1PercentFEAutomation/RequestedSession/Requested-sessions_fe.js --env chrome
-      working-directory: Github-Actions  
+      working-directory: go1percent  
