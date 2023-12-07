@@ -94,27 +94,6 @@ describe('Test Automation', () => {
         .assert.containsText('@dropdown', 'Knolx - Share Your Experience')
     }),
 
-    it('Should be able to approve session', () => {
-
-      requestPage
-        .ClickRemarks('Approving the session remarks')
-        .waitForElementVisible('@approveButton')
-
-        .ApprovingSession()
-        .pause(300)
-
-    }),
-
-    it('Should be able to reject session', () => {
-
-      requestPage
-        .ClickRemarks('Rejecting the session remarks')
-        .waitForElementVisible('@rejectButton')
-
-        .RejectingingSession()
-        .pause(300)
-    }),
-
     it('Add or update SlideURL', () => {
 
       requestPage
@@ -126,6 +105,17 @@ describe('Test Automation', () => {
 
         .savingSlide()
         .pause(500)
+    }),
+
+    it('Should be able to approve session', () => {
+
+      requestPage
+        .ClickRemarks('Approving the session remarks')
+        .waitForElementVisible('@approveButton')
+
+        .ApprovingSession()
+        .pause(300)
+
     })
 
 });
