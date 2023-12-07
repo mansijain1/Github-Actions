@@ -29,6 +29,10 @@ jobs:
       run: npm install
       working-directory: go1percentTS
 
+    - name: Install TypeScript
+      run: npm install -g typescript
+
+
     # - name: Install Nightwatch
     #   run: npm install --save-dev nightwatch
     #   working-directory: go1percentTS
@@ -46,9 +50,10 @@ jobs:
     # - name: Run Go1PercentAPIAutomation Tests
     #   run: npx nightwatch ./test/Go1PercentAPIAutomation/RequestedSession/requested-session_api.js --env api_testing
     #   working-directory: go1percentTS  
-      
+
+
     - name: Run Go1PercentFEAutomation Tests
       run: |
-        npx nightwatch ./src/test/Go1PercentFEAutomation/RequestedSession/RequestedSessionsTest.ts --env chrome
-        npx nightwatch ./src/test/Go1PercentFEAutomation/RequestedSession/RejectSession.ts --env chrome
+        tsc ./src/test/Go1PercentFEAutomation/RequestedSession/RequestedSessionsTest.ts --env chrome
+        tsc ./src/test/Go1PercentFEAutomation/RequestedSession/RejectSession.ts --env chrome
       working-directory: go1percentTS  
