@@ -23,7 +23,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        cache-dependency-path: './go1percentTS/package-lock.json'
+        cache-dependency-path: './go1percent/package-lock.json'
 
     - name: Install dependencies
       run: npm install
