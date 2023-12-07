@@ -22,15 +22,15 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        # cache: 'npm'
-        # cache-dependency-path: './go1percent/package-lock.json'
+        cache: 'npm'
+        cache-dependency-path: './go1percent/package-lock.json'
 
     - name: Install dependencies
       run: npm install
       working-directory: go1percentTS
 
-    - name: Install TypeScript
-      run: npm install -g typescript
+    # - name: Install TypeScript
+    #   run: npm install -g typescript
 
     - name: Install ChromeDriver
       run: |
@@ -41,7 +41,6 @@ jobs:
     - name: Build project
       run: npm run build --if-present
       working-directory: go1percentTS  
-
 
     - name: Run Go1PercentFEAutomation Tests
       run: npx nightwatch ./src/test/Go1PercentFEAutomation/RequestedSession --env chrome
