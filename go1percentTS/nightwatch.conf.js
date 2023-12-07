@@ -63,12 +63,12 @@ module.exports = {
       },
 
       desiredCapabilities: {
-        browserName: 'chrome'
+        browserName: 'MicrosoftEdge'
       },
 
       webdriver: {
         start_process: true,
-        server_path: '/home/runner/work/Github-Actions/Github-Actions/go1percentTS/node_modules/chromedriver/lib/chromedriver/chromedriver'
+        server_path: ''
       }
     },
 
