@@ -33,10 +33,6 @@ jobs:
     #   run: npm install -g typescript
 
 
-    # - name: Install Nightwatch
-    #   run: npm install --save-dev nightwatch
-    #   working-directory: go1percentTS
-
     # - name: Install ChromeDriver
     #   run: |
     #       CHROMEDRIVER_VERSION=119.0.0
@@ -49,7 +45,5 @@ jobs:
 
 
     - name: Run Go1PercentFEAutomation Tests
-      run: |
-        npx nightwatch ./src/test/Go1PercentFEAutomation/RequestedSession/RequestedSessionsTest.ts --env chrome
-        npx nightwatch ./src/test/Go1PercentFEAutomation/RequestedSession/RejectSession.ts --env chrome
+      run: npx nightwatch ./src/test/Go1PercentFEAutomation/RequestedSession --env chrome
       working-directory: go1percentTS  
