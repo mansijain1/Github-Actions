@@ -68,7 +68,7 @@ module.exports = {
 
       webdriver: {
         start_process: true,
-        server_path: 'node_modules/.bin/chromedriver'
+        server_path: '/home/runner/work/Github-Actions/Github-Actions/go1percentTS/node_modules/chromedriver/lib/chromedriver/chromedriver'
       }
     },
 
