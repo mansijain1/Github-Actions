@@ -29,9 +29,9 @@ jobs:
       run: npm install
       working-directory: go1percentTS
 
-    - name: Install Nightwatch
-      run: npm install --save-dev nightwatch
-      working-directory: go1percentTS
+    # - name: Install Nightwatch
+    #   run: npm install --save-dev nightwatch
+    #   working-directory: go1percentTS
 
     - name: Install ChromeDriver
       run: |
